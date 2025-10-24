@@ -81,10 +81,15 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-       positionX += speed = 0;  
-      (positionX > boardWidth) 
-        speed *= -1;
-        moveBoxTo(200);
+        positionX = positionX + speed;
+        if (positionX > boardWidth) 
+    speed *= -1;
+           else if (positionX < 0) 
+    speed *= -1;
+          moveBoxTo(positionX);
+  
+  
+
         
       
 
@@ -99,12 +104,10 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-            positionX
+            positionX = 0
          points++;
-         speed = 3 * points + 10;   // Linear speed formula
+         speed = 3 * points + 5;   // Linear speed formula
       changeBoxText(points);
-
-
 
         }
 
